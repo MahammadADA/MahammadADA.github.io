@@ -417,7 +417,7 @@ window.Quest = window.Quest || {};
     $("sheet-body").innerHTML = `
       ${complete ? `<p class="sheet__banner">🏆 Quest complete — all ${total} places visited!</p>` : ""}
       <header class="sheet__head">
-        <div class="sheet__avatar" aria-hidden="true">M</div>
+        <img class="sheet__avatar" src="assets/img/profile.jpg" alt="" width="64" height="64">
         <div>
           <h2 id="sheet-title">${s.title}</h2>
           <p>${s.class} · Level ${state.level}</p>

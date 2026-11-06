@@ -68,7 +68,7 @@ All the art is drawn with code on an HTML `<canvas>`, and all sounds are generat
     │       └── game.js       # game loop, camera, input, saving progress
     └── img/
         ├── favicon.svg
-        ├── profile-placeholder.svg
+        ├── profile.jpg           # profile photo
         └── projects/         # project images
 ```
 
