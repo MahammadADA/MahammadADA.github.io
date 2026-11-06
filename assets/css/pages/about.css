@@ -1,0 +1,106 @@
+/* ==========================================================================
+   about.css — styles only used on the About page
+   ========================================================================== */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: start;
+}
+
+.about-side {
+  display: grid;
+  gap: 1.25rem;
+  position: sticky;
+  top: calc(var(--header-h) + 1.5rem);
+}
+
+.timeline .card {
+  padding: 1.2rem 1.4rem;
+}
+
+/* Languages */
+.lang-list {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 0.9rem;
+}
+
+.lang-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+}
+
+.lang-note,
+.skill-note {
+  margin-top: 0.9rem;
+  font-size: 0.92rem;
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+/* Skills */
+.skill-list {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 0.9rem;
+}
+
+.skill-list li {
+  position: relative;
+  padding-left: 1.4rem;
+  color: var(--text-muted);
+  font-size: 0.98rem;
+}
+
+.skill-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  transform: rotate(45deg);
+}
+
+.inline-link {
+  color: var(--gold);
+  border-bottom: 1px solid rgba(246, 196, 83, 0.4);
+}
+
+.inline-link:hover {
+  border-color: var(--gold);
+}
+
+/* Hobbies */
+.hobbies {
+  display: grid;
+  gap: 1.5rem;
+  padding: clamp(1.6rem, 4vw, 2.5rem);
+}
+
+.hobbies h2 {
+  margin-top: 0.6rem;
+}
+
+.hobbies .chip {
+  font-size: 0.98rem;
+  padding: 0.6rem 1rem;
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-side {
+    position: static;
+  }
+}
