@@ -1,0 +1,278 @@
+/* ==========================================================================
+   components.css — reusable UI pieces: buttons, cards, chips, badges,
+   timeline and the "quest" call-to-action banner
+   ========================================================================== */
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  line-height: 1;
+  transition: transform 0.2s var(--ease), box-shadow 0.2s, background 0.2s, border-color 0.2s;
+}
+
+.btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, var(--gold), #e99a35);
+  color: #1a1300;
+  box-shadow: 0 8px 24px rgba(246, 196, 83, 0.28);
+}
+
+.btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(246, 196, 83, 0.4);
+}
+
+.btn--ghost {
+  border: 1px solid var(--border-strong);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.btn--ghost:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+/* ---------- Card ---------- */
+.card {
+  position: relative;
+  padding: 1.6rem;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--surface), var(--bg-elev));
+  border: 1px solid var(--border);
+  transition: transform 0.3s var(--ease), border-color 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  border-color: var(--border-strong);
+}
+
+.card--lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.card__icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  font-size: 1.35rem;
+  background: var(--gold-soft);
+  color: var(--gold);
+}
+
+.card__icon--teal {
+  background: var(--teal-soft);
+  color: var(--teal);
+}
+
+.card__icon--violet {
+  background: var(--violet-soft);
+  color: var(--violet);
+}
+
+.grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.grid--2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid--3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* ---------- Chips & badges ---------- */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  font-family: var(--font-pixel);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.badge--done {
+  color: var(--teal);
+  background: var(--teal-soft);
+}
+
+.badge--soon {
+  color: var(--gold);
+  background: var(--gold-soft);
+}
+
+.badge--live {
+  color: var(--violet);
+  background: var(--violet-soft);
+}
+
+/* ---------- Timeline ---------- */
+.timeline {
+  position: relative;
+  list-style: none;
+  padding: 0 0 0 1.75rem;
+  display: grid;
+  gap: 1.1rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--gold), var(--teal), var(--violet));
+  border-radius: 2px;
+}
+
+.timeline__item {
+  position: relative;
+}
+
+.timeline__item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.75rem + 1px);
+  top: 1.55rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  background: var(--bg);
+  border: 2px solid var(--gold);
+  transform: rotate(45deg);
+}
+
+.timeline__item--current::before {
+  background: var(--gold);
+  box-shadow: 0 0 14px var(--gold);
+}
+
+.timeline__when {
+  font-family: var(--font-pixel);
+  font-size: 0.85rem;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+}
+
+.timeline__item h3 {
+  margin: 0.2rem 0 0.35rem;
+  font-size: 1.15rem;
+}
+
+/* ---------- Quest call-to-action banner ---------- */
+.quest-cta {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.75rem;
+  padding: 2rem 2.25rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(246, 196, 83, 0.35);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(246, 196, 83, 0.18), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(169, 139, 255, 0.18), transparent 55%),
+    var(--bg-elev);
+}
+
+.quest-cta h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.quest-cta p {
+  margin-top: 0.4rem;
+}
+
+.quest-cta__die {
+  width: 84px;
+  height: 84px;
+  animation: die-spin 6s var(--ease) infinite;
+  filter: drop-shadow(0 8px 20px rgba(246, 196, 83, 0.35));
+}
+
+@keyframes die-spin {
+  0%,
+  70% {
+    transform: rotate(0deg);
+  }
+  85% {
+    transform: rotate(200deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 760px) {
+  .quest-cta {
+    grid-template-columns: 1fr;
+    text-align: left;
+    padding: 1.6rem;
+  }
+
+  .quest-cta__die {
+    width: 64px;
+    height: 64px;
+  }
+}
