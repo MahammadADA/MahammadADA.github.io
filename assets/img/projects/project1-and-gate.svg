@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Diagram of an AND logic gate with its truth table">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#141a30"/>
+      <stop offset="1" stop-color="#0b0e18"/>
+    </linearGradient>
+    <pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M25 0H0V25" fill="none" stroke="#ffffff" stroke-opacity="0.04"/>
+    </pattern>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <rect width="800" height="450" fill="url(#grid)"/>
+
+  <!-- wires -->
+  <g stroke="#5fe3d0" stroke-width="5" fill="none" stroke-linecap="round" filter="url(#glow)">
+    <path d="M70 165H215"/>
+    <path d="M70 265H215"/>
+    <path d="M375 215H470"/>
+  </g>
+  <circle cx="70" cy="165" r="10" fill="#5fe3d0"/>
+  <circle cx="70" cy="265" r="10" fill="#5fe3d0"/>
+  <text x="62" y="140" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#e8ebf5">A</text>
+  <text x="62" y="305" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#e8ebf5">B</text>
+
+  <!-- AND gate body -->
+  <path d="M215 130H295A85 85 0 0 1 295 300H215Z" fill="#1d2442" stroke="#f6c453" stroke-width="6" filter="url(#glow)"/>
+  <text x="275" y="226" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#f6c453" text-anchor="middle">AND</text>
+
+  <!-- output LED -->
+  <circle cx="490" cy="215" r="22" fill="#f6c453" filter="url(#glow)"/>
+  <circle cx="490" cy="215" r="10" fill="#fff6d9"/>
+  <text x="490" y="270" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#e8ebf5" text-anchor="middle">A · B</text>
+
+  <!-- truth table -->
+  <g font-family="Courier New, monospace" font-size="24" fill="#e8ebf5">
+    <rect x="560" y="105" width="190" height="230" rx="14" fill="#11162a" stroke="#ffffff" stroke-opacity="0.12"/>
+    <text x="595" y="145" fill="#a1a9c4" font-weight="700">A  B  OUT</text>
+    <line x1="580" y1="160" x2="730" y2="160" stroke="#ffffff" stroke-opacity="0.15"/>
+    <text x="595" y="195">0  0   0</text>
+    <text x="595" y="235">0  1   0</text>
+    <text x="595" y="275">1  0   0</text>
+    <text x="595" y="315" fill="#f6c453" font-weight="700">1  1   1</text>
+  </g>
+
+  <text x="40" y="410" font-family="Arial, sans-serif" font-size="20" fill="#6d7594">Output is 1 only when both inputs are 1</text>
+</svg>

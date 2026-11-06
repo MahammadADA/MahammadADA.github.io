@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Illustration for the upcoming Hour of Code project">
+  <!-- Illustration only. Replace with real photos once the project is done. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a1636"/>
+      <stop offset="1" stop-color="#0b0e18"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <!-- board -->
+  <rect x="150" y="70" width="500" height="270" rx="16" fill="#11162a" stroke="#a98bff" stroke-width="4"/>
+  <g font-family="Courier New, monospace" font-size="28">
+    <text x="190" y="135" fill="#a98bff">repeat 4 times:</text>
+    <text x="230" y="185" fill="#5fe3d0">move_forward()</text>
+    <text x="230" y="235" fill="#5fe3d0">turn_right()</text>
+    <text x="190" y="290" fill="#f6c453">// Hour of Code</text>
+  </g>
+  <!-- desks -->
+  <g fill="#1d2442" stroke="#ffffff" stroke-opacity="0.1">
+    <rect x="120" y="370" width="150" height="40" rx="8"/>
+    <rect x="325" y="370" width="150" height="40" rx="8"/>
+    <rect x="530" y="370" width="150" height="40" rx="8"/>
+  </g>
+  <g fill="#f6c453">
+    <circle cx="195" cy="355" r="16"/>
+    <circle cx="400" cy="355" r="16"/>
+    <circle cx="605" cy="355" r="16"/>
+  </g>
+</svg>

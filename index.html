@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahammad Shahmuradov — Home</title>
+  <meta name="description" content="Mahammad Shahmuradov — first-year IT student at ADA University in Baku. Into AI, tabletop RPGs, the gym and PC games.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Pixelify+Sans:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/home.css">
+</head>
+<body data-page="home">
+  <script src="assets/js/components.js"></script>
+  <site-header></site-header>
+
+  <main id="main">
+    <!-- ===== Hero ===== -->
+    <section class="hero container">
+      <div class="hero__text">
+        <span class="eyebrow">Player 1 has joined</span>
+        <h1>Hi, I'm <span class="text-gradient">Mahammad</span>.</h1>
+        <p class="hero__typed">
+          Into <span class="typed" data-typewords="AI projects|Dungeons &amp; Dragons|the gym|PC games|computers, a lot">AI projects</span><span class="caret" aria-hidden="true"></span>
+        </p>
+        <p class="hero__intro">
+          I'm 18, a first-year IT student at ADA University, and a normal university student
+          (at least I hope so). I'm from Baku. I use a computer for several hours every day,
+          I learn new things quickly, and one of my hobbies is using AI to create projects
+          &mdash; like this website.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="quest.html">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l10.6-6.86a1 1 0 0 0 0-1.7L9.52 4.29A1 1 0 0 0 8 5.14Z"/></svg>
+            Play my quest
+          </a>
+          <a class="btn btn--ghost" href="projects.html">See my projects</a>
+        </div>
+      </div>
+
+      <div class="hero__visual">
+        <div class="portrait">
+          <!-- To use a real photo: put it at assets/img/profile.jpg and change src below -->
+          <img src="assets/img/profile-placeholder.svg" alt="Photo of Mahammad Shahmuradov" width="400" height="400">
+          <span class="portrait__corner portrait__corner--tl"></span>
+          <span class="portrait__corner portrait__corner--br"></span>
+        </div>
+        <span class="float-chip float-chip--1">📍 Baku</span>
+        <span class="float-chip float-chip--2">🎓 ADA University</span>
+        <span class="float-chip float-chip--3">Lv. 18</span>
+      </div>
+    </section>
+
+    <!-- ===== Quick stats ===== -->
+    <section class="container" aria-label="Quick facts">
+      <ul class="stats" role="list">
+        <li class="stat reveal">
+          <span class="stat__value">18</span>
+          <span class="stat__label">years old</span>
+        </li>
+        <li class="stat reveal">
+          <span class="stat__value">1st</span>
+          <span class="stat__label">year, IT at ADA</span>
+        </li>
+        <li class="stat reveal">
+          <span class="stat__value">3 + 1</span>
+          <span class="stat__label">languages (Russian in progress)</span>
+        </li>
+        <li class="stat reveal">
+          <span class="stat__value">1</span>
+          <span class="stat__label">club &mdash; enough for now</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ===== Goal ===== -->
+    <section class="section container">
+      <div class="goal reveal">
+        <span class="eyebrow">Main quest</span>
+        <blockquote>
+          My ultimate goal is to have an <span class="text-gradient">AI company</span> and fix as many
+          problems as I can &mdash; and while doing that, create interesting AI models,
+          maybe even robots or VR products.
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ===== Interests ===== -->
+    <section class="section container" style="padding-top: 0">
+      <div class="section__head reveal">
+        <span class="eyebrow">Side quests</span>
+        <h2>What I spend my time on</h2>
+      </div>
+      <div class="grid grid--2">
+        <article class="card card--lift reveal">
+          <div class="card__icon card__icon--teal" aria-hidden="true">🤖</div>
+          <h3>Making things with AI</h3>
+          <p>One of my hobbies is using AI to create projects. This website is one of them &mdash; I built it together with an AI agent.</p>
+        </article>
+        <article class="card card--lift reveal">
+          <div class="card__icon" aria-hidden="true">🎲</div>
+          <h3>Tabletop roleplaying</h3>
+          <p>I'm actively involved in the tabletop roleplaying club and just started Dungeons &amp; Dragons. I highly recommend it to others too.</p>
+        </article>
+        <article class="card card--lift reveal">
+          <div class="card__icon card__icon--violet" aria-hidden="true">🏋️</div>
+          <h3>The gym</h3>
+          <p>I go to the gym. I don't know if that counts as a hobby, but I like going.</p>
+        </article>
+        <article class="card card--lift reveal">
+          <div class="card__icon card__icon--teal" aria-hidden="true">🎮</div>
+          <h3>PC games</h3>
+          <p>I like going back home and chilling out in front of the computer &mdash; and playing PC games is a big part of that.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Quest call to action ===== -->
+    <section class="container">
+      <div class="quest-cta reveal">
+        <svg class="quest-cta__die" viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M32 3 58 18v28L32 61 6 46V18Z" fill="#f6c453"/>
+          <path d="M32 3 58 18 32 26 6 18Z" fill="#ffe29a"/>
+          <path d="M32 26 58 18 58 46 32 61Z" fill="#d88a2e"/>
+          <text x="32" y="47" font-family="Arial" font-size="18" font-weight="900" fill="#1a1300" text-anchor="middle">20</text>
+        </svg>
+        <div>
+          <h2>Want the interactive version?</h2>
+          <p>Walk around a small pixel world, visit places from my life and level up a character sheet &mdash; all about me.</p>
+        </div>
+        <a class="btn btn--primary" href="quest.html">Start the quest</a>
+      </div>
+    </section>
+  </main>
+
+  <site-footer></site-footer>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

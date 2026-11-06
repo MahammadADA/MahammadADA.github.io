@@ -1,0 +1,238 @@
+/* ==========================================================================
+   home.css — styles only used on the Home page (index.html)
+   ========================================================================== */
+
+/* ---------- Hero ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5rem);
+  min-height: calc(100vh - var(--header-h) - 6rem);
+  padding-block: clamp(3rem, 8vw, 5rem);
+}
+
+.hero h1 {
+  margin-top: 1rem;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+}
+
+.hero__typed {
+  margin-top: 0.6rem;
+  font-family: var(--font-pixel);
+  font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+  color: var(--text);
+}
+
+.typed {
+  color: var(--teal);
+}
+
+.caret {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  margin-left: 4px;
+  vertical-align: -0.15em;
+  background: var(--teal);
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.hero__intro {
+  max-width: 560px;
+  margin: 1.4rem 0 2rem;
+  font-size: 1.12rem;
+}
+
+/* ---------- Portrait ---------- */
+.hero__visual {
+  position: relative;
+  justify-self: center;
+  width: min(100%, 380px);
+}
+
+.portrait {
+  position: relative;
+  aspect-ratio: 1;
+  padding: 10px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, var(--gold), var(--violet) 55%, var(--teal));
+  box-shadow: var(--shadow-lg), 0 0 80px rgba(246, 196, 83, 0.18);
+  transform: rotate(2deg);
+  transition: transform 0.5s var(--ease);
+}
+
+.hero__visual:hover .portrait {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  background: var(--surface);
+}
+
+.portrait__corner {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border: 4px solid var(--text);
+}
+
+.portrait__corner--tl {
+  top: -14px;
+  left: -14px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.portrait__corner--br {
+  right: -14px;
+  bottom: -14px;
+  border-left: none;
+  border-top: none;
+}
+
+.float-chip {
+  position: absolute;
+  padding: 0.5rem 0.9rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  background: rgba(22, 28, 51, 0.9);
+  border: 1px solid var(--border-strong);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow);
+  animation: bob 4s ease-in-out infinite;
+}
+
+.float-chip--1 {
+  top: 12%;
+  left: -12%;
+}
+
+.float-chip--2 {
+  bottom: 14%;
+  left: -18%;
+  animation-delay: -1.3s;
+}
+
+.float-chip--3 {
+  top: -4%;
+  right: -6%;
+  font-family: var(--font-pixel);
+  color: #1a1300;
+  background: var(--gold);
+  border-color: transparent;
+  animation-delay: -2.6s;
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ---------- Stats ---------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: rgba(17, 22, 42, 0.7);
+  overflow: hidden;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1.6rem 1.5rem;
+}
+
+.stat + .stat {
+  border-left: 1px solid var(--border);
+}
+
+.stat__value {
+  font-family: var(--font-pixel);
+  font-size: 2rem;
+  line-height: 1.1;
+  color: var(--gold);
+}
+
+.stat__label {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+/* ---------- Goal quote ---------- */
+.goal {
+  position: relative;
+  padding: clamp(2rem, 5vw, 3.5rem);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(95, 227, 208, 0.12), transparent 50%),
+    linear-gradient(180deg, var(--surface), var(--bg-elev));
+  border: 1px solid var(--border);
+}
+
+.goal blockquote {
+  margin-top: 1rem;
+  font-family: var(--font-head);
+  font-size: clamp(1.4rem, 3vw, 2.1rem);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    text-align: left;
+  }
+
+  .hero__visual {
+    order: -1;
+    width: min(72%, 300px);
+    margin-top: 1rem;
+  }
+
+  .float-chip--1 {
+    left: -8%;
+  }
+
+  .float-chip--2 {
+    left: auto;
+    right: -12%;
+    bottom: 6%;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat:nth-child(3) {
+    border-left: none;
+  }
+
+  .stat:nth-child(n + 3) {
+    border-top: 1px solid var(--border);
+  }
+}

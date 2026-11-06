@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Profile photo placeholder">
+  <!-- TEMPORARY placeholder. Replace with assets/img/profile.jpg (see README). -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1d2442"/>
+      <stop offset="1" stop-color="#0f1324"/>
+    </linearGradient>
+    <linearGradient id="fig" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6c453"/>
+      <stop offset="1" stop-color="#d88a2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg)"/>
+  <circle cx="200" cy="160" r="70" fill="url(#fig)" opacity="0.9"/>
+  <path d="M70 400c0-80 58-140 130-140s130 60 130 140z" fill="url(#fig)" opacity="0.9"/>
+  <text x="200" y="178" font-family="Arial, sans-serif" font-size="56" font-weight="700" fill="#1a1300" text-anchor="middle">MS</text>
+</svg>
