@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahammad's Quest — an interactive About page</title>
+  <meta name="description" content="A tiny pixel RPG about Mahammad Shahmuradov. Walk around, visit places from his life, collect language scrolls and level up.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Pixelify+Sans:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/quest.css">
+</head>
+<body data-page="quest">
+  <script src="assets/js/components.js"></script>
+  <site-header></site-header>
+
+  <!-- d20 shape reused by every die on this page -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="d20-shape" viewBox="0 0 64 64">
+      <path d="M32 3 58 18v28L32 61 6 46V18Z" fill="currentColor"/>
+      <path d="M32 3 58 18 32 22 6 18Z" fill="#fff" opacity=".28"/>
+      <path d="M6 18 32 22 14 46 6 46Z M58 18 32 22 50 46 58 46Z" fill="#000" opacity=".1"/>
+      <path d="M14 46H50L32 61Z" fill="#000" opacity=".22"/>
+      <path d="M32 22 50 46H14Z" fill="none" stroke="#000" stroke-opacity=".25" stroke-width="1.5"/>
+    </symbol>
+  </svg>
+
+  <main id="main">
+    <section class="quest-wrap">
+      <div class="stage" id="stage" tabindex="-1">
+        <canvas id="game" role="img" aria-label="Pixel-art world of Mahammad's Quest. Use the Quest Log to travel between places with the keyboard."></canvas>
+        <div class="labels" id="labels" aria-hidden="true"></div>
+
+        <!-- ===== HUD ===== -->
+        <div class="hud">
+          <div class="hud__card">
+            <div class="hud__avatar" aria-hidden="true">M</div>
+            <div class="hud__info">
+              <div class="hud__name">Mahammad <span class="hud__lvl">Lv <b id="hud-level">10</b></span></div>
+              <div class="xpbar" aria-hidden="true"><div class="xpbar__fill" id="xp-fill"></div></div>
+              <div class="hud__counts">
+                <span title="Places visited">🏛️ <b id="hud-places">0</b>/<span id="hud-places-total">8</span></span>
+                <span title="Language scrolls">📜 <b id="hud-scrolls">0</b>/<span id="hud-scrolls-total">4</span></span>
+                <span class="hud__xp" id="xp-text">0 XP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hud-buttons">
+          <button type="button" class="hud-btn" id="btn-log" aria-controls="quest-log" aria-expanded="false" title="Quest log (Q)" aria-label="Quest log (Q)">📖</button>
+          <button type="button" class="hud-btn" id="btn-sheet" title="Character sheet (C)" aria-label="Character sheet (C)">🧙</button>
+          <button type="button" class="hud-btn" id="btn-sound">🔊</button>
+          <button type="button" class="hud-btn" id="btn-help" title="How to play" aria-label="How to play">?</button>
+        </div>
+
+        <!-- ===== Quest log ===== -->
+        <aside class="quest-log" id="quest-log" hidden aria-label="Quest log">
+          <h2 class="quest-log__title">Quest Log</h2>
+          <p class="quest-log__hint">Click a place to walk there.</p>
+          <ol class="quest-log__list" id="log-list" role="list"></ol>
+          <h3 class="quest-log__sub">Language scrolls</h3>
+          <ul class="quest-log__scrolls" id="log-scrolls" role="list"></ul>
+        </aside>
+
+        <!-- ===== Prompt, dialog, toasts ===== -->
+        <div class="prompt" id="prompt" hidden></div>
+
+        <div class="dialog" id="dialog" hidden role="dialog" aria-labelledby="dialog-title" tabindex="-1">
+          <div class="dialog__portrait" id="dialog-icon" aria-hidden="true"></div>
+          <div class="dialog__body">
+            <div class="dialog__head">
+              <h2 id="dialog-title"></h2>
+              <span class="dialog__sub" id="dialog-sub"></span>
+            </div>
+            <p class="dialog__text" id="dialog-text" aria-live="polite"></p>
+            <div class="dialog__extras" id="dialog-extras" hidden></div>
+            <div class="dialog__foot">
+              <span class="dialog__dots" id="dialog-dots" aria-hidden="true"></span>
+              <span class="dialog__hint">Space / Enter</span>
+              <button type="button" class="dialog__next" id="dialog-next">Next ▶</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="toasts" id="toasts" aria-live="polite"></div>
+
+        <div class="levelup" id="levelup" hidden aria-live="polite">
+          <span class="levelup__label">Level up!</span>
+          <b class="levelup__num" id="levelup-num"></b>
+        </div>
+
+        <!-- ===== Touch controls (phones / tablets) ===== -->
+        <div class="touch" id="touch" hidden>
+          <div class="dpad">
+            <button type="button" class="dpad__btn dpad__up" data-dir="0,-1" aria-label="Move up">▲</button>
+            <button type="button" class="dpad__btn dpad__left" data-dir="-1,0" aria-label="Move left">◀</button>
+            <button type="button" class="dpad__btn dpad__right" data-dir="1,0" aria-label="Move right">▶</button>
+            <button type="button" class="dpad__btn dpad__down" data-dir="0,1" aria-label="Move down">▼</button>
+          </div>
+          <button type="button" class="touch-action" id="touch-action" aria-label="Interact">A</button>
+        </div>
+
+        <!-- ===== Intro screen ===== -->
+        <div class="overlay" id="intro" hidden>
+          <div class="intro">
+            <span class="eyebrow">An interactive About page</span>
+            <h1 class="intro__title">Mahammad's <span class="text-gradient">Quest</span></h1>
+            <p class="intro__lead">A tiny RPG about me. Visit 8 places from my life, find 4 language scrolls and level up from <b>Lv 10</b> to <b>Lv 18</b>.</p>
+
+            <div class="intro__die" id="intro-die">
+              <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#d20-shape"/></svg>
+              <b id="intro-die-num">20</b>
+            </div>
+            <p class="intro__result" id="intro-result" hidden aria-live="polite"></p>
+
+            <div class="intro__buttons">
+              <button type="button" class="btn btn--primary" id="intro-roll">🎲 Roll for initiative</button>
+              <button type="button" class="btn btn--primary" id="intro-start" hidden>Start the quest ▶</button>
+            </div>
+
+            <ul class="controls" role="list">
+              <li><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> / arrows <span>move</span></li>
+              <li><kbd>E</kbd> / <kbd>Space</kbd> <span>enter / talk</span></li>
+              <li><kbd>Click</kbd> <span>walk there</span></li>
+              <li><kbd>Q</kbd> <span>quest log</span></li>
+              <li><kbd>C</kbd> <span>character sheet</span></li>
+              <li><kbd>M</kbd> <span>sound</span></li>
+            </ul>
+            <a class="intro__skip" href="about.html">Prefer reading? Open the normal About page →</a>
+          </div>
+        </div>
+
+        <!-- ===== Character sheet ===== -->
+        <div class="overlay" id="sheet" hidden>
+          <div class="sheet" role="dialog" aria-labelledby="sheet-title" id="sheet-body"></div>
+        </div>
+
+        <canvas class="confetti" id="confetti" aria-hidden="true"></canvas>
+      </div>
+    </section>
+
+    <section class="container quest-info">
+      <div class="grid grid--3">
+        <div class="card">
+          <div class="card__icon" aria-hidden="true">🗺️</div>
+          <h3>How to play</h3>
+          <p>Walk with WASD or the arrow keys, or just click where you want to go. Stand in front of a door and press E to go in. On a phone, use the on-screen buttons.</p>
+        </div>
+        <div class="card">
+          <div class="card__icon card__icon--teal" aria-hidden="true">💾</div>
+          <h3>Progress is saved</h3>
+          <p>Your progress is saved in this browser, so you can come back later. You can reset it from the character sheet.</p>
+        </div>
+        <div class="card">
+          <div class="card__icon card__icon--violet" aria-hidden="true">📄</div>
+          <h3>Text version</h3>
+          <p>Everything in the game is also on the <a class="inline-link" href="about.html">About page</a>, if you'd rather read it.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <site-footer></site-footer>
+
+  <!-- Game scripts: order matters -->
+  <script src="assets/js/quest/data.js"></script>
+  <script src="assets/js/quest/audio.js"></script>
+  <script src="assets/js/quest/world.js"></script>
+  <script src="assets/js/quest/player.js"></script>
+  <script src="assets/js/quest/ui.js"></script>
+  <script src="assets/js/quest/game.js"></script>
+</body>
+</html>

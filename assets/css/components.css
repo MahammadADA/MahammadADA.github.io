@@ -51,6 +51,16 @@
   gap: 0.8rem;
 }
 
+/* ---------- Inline text link ---------- */
+.inline-link {
+  color: var(--gold);
+  border-bottom: 1px solid rgba(246, 196, 83, 0.4);
+}
+
+.inline-link:hover {
+  border-color: var(--gold);
+}
+
 /* ---------- Card ---------- */
 .card {
   position: relative;
