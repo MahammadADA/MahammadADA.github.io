@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Mahammad Shahmuradov</title>
+  <meta name="description" content="Projects by Mahammad Shahmuradov: logic gates, Hour of Code, LEGO EV3 robotics and this website.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Pixelify+Sans:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/projects.css">
+</head>
+<body data-page="projects">
+  <script src="assets/js/components.js"></script>
+  <site-header></site-header>
+
+  <main id="main">
+    <section class="page-hero container">
+      <span class="eyebrow">Projects</span>
+      <h1>Quest <span class="text-gradient">log</span></h1>
+      <p>Projects from SITE 1101 at ADA University. Some are finished, some are still ahead &mdash; I'll update this page as I complete them.</p>
+    </section>
+
+    <section class="container">
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button class="filter is-active" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter" data-filter="done" aria-pressed="false">Completed</button>
+        <button class="filter" data-filter="soon" aria-pressed="false">Upcoming</button>
+      </div>
+
+      <div class="projects">
+        <!-- ===== Project 1 ===== -->
+        <article class="project project--featured reveal" data-status="done">
+          <figure class="project__media">
+            <img src="assets/img/projects/project1-and-gate.svg" alt="Diagram of an AND gate with two inputs, one output and its truth table" loading="lazy" width="800" height="450">
+            <figcaption>The AND gate &mdash; my part of the project</figcaption>
+          </figure>
+          <div class="project__body">
+            <div class="project__meta">
+              <span class="project__num">Project 1</span>
+              <span class="badge badge--done">Completed</span>
+            </div>
+            <h2>Logic Gates in the Lab</h2>
+            <p>
+              In the university lab, our group of four built logic gates &mdash; <strong>AND</strong>,
+              <strong>OR</strong> and <strong>NOT</strong> &mdash; and made a video explaining them.
+              Three of us each built one gate, and the fourth member edited the video.
+            </p>
+            <p>
+              <strong>My part:</strong> the AND gate, which I built successfully. Its output is on
+              only when both inputs are on.
+            </p>
+            <ul class="chips" role="list">
+              <li class="chip">Logic gates</li>
+              <li class="chip">Circuits</li>
+              <li class="chip">Teamwork (4 people)</li>
+              <li class="chip">Video</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- ===== Project 2 ===== -->
+        <article class="project reveal" data-status="soon">
+          <figure class="project__media">
+            <img src="assets/img/projects/project2-hour-of-code.svg" alt="Illustration of a classroom board with simple code, for the upcoming Hour of Code project" loading="lazy" width="800" height="450">
+          </figure>
+          <div class="project__body">
+            <div class="project__meta">
+              <span class="project__num">Project 2</span>
+              <span class="badge badge--soon">Upcoming</span>
+            </div>
+            <h2>Hour of Code</h2>
+            <p>
+              Not done yet. The plan is to go to a school and explain coding to students in an
+              Hour of Code session. We'd like to do it at Ankara Liseyi or a similar school,
+              if they accept us.
+            </p>
+            <ul class="chips" role="list">
+              <li class="chip">Teaching</li>
+              <li class="chip">Schools</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- ===== Project 3 ===== -->
+        <article class="project reveal" data-status="soon">
+          <figure class="project__media">
+            <img src="assets/img/projects/project3-robotics.svg" alt="Illustration of a small robot that has drawn a square and a triangle" loading="lazy" width="800" height="450">
+          </figure>
+          <div class="project__body">
+            <div class="project__meta">
+              <span class="project__num">Project 3</span>
+              <span class="badge badge--soon">Upcoming</span>
+            </div>
+            <h2>Robotics: LEGO EV3</h2>
+            <p>
+              Not done yet. We'll program a LEGO EV3 robot so that its movements make shapes.
+              Photos and results will go here once we finish it.
+            </p>
+            <ul class="chips" role="list">
+              <li class="chip">LEGO EV3</li>
+              <li class="chip">Robotics</li>
+              <li class="chip">Programming</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- ===== Project 4 ===== -->
+        <article class="project reveal" data-status="done">
+          <figure class="project__media">
+            <img src="assets/img/projects/project4-website.svg" alt="Illustration of this website open in a browser window" loading="lazy" width="800" height="450">
+          </figure>
+          <div class="project__body">
+            <div class="project__meta">
+              <span class="project__num">Project 4</span>
+              <span class="badge badge--live">Live</span>
+            </div>
+            <h2>This Website</h2>
+            <p>
+              My personal website, built with HTML, CSS and JavaScript together with an AI agent,
+              tracked with git and hosted on GitHub Pages. The About page also has a game version:
+              a small RPG you can walk around in.
+            </p>
+            <ul class="chips" role="list">
+              <li class="chip">HTML</li>
+              <li class="chip">CSS</li>
+              <li class="chip">JavaScript</li>
+              <li class="chip">Git &amp; GitHub</li>
+            </ul>
+            <div class="btn-row project__links">
+              <a class="btn btn--ghost" href="quest.html">Play the quest</a>
+              <a class="btn btn--ghost" href="https://github.com/MahammadADA/MahammadADA.github.io" target="_blank" rel="noopener">Source code</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <site-footer></site-footer>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/projects.js" defer></script>
+</body>
+</html>
