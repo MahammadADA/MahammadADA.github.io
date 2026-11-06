@@ -140,6 +140,11 @@
   min-height: 320px;
   border-bottom: none;
   border-right: 1px solid var(--border);
+  background: #0f1426;
+}
+
+.project--featured .project__media img {
+  object-fit: contain; /* show the whole diagram, don't crop it */
 }
 
 .project--featured .project__body {

@@ -46,5 +46,4 @@
     <text x="595" y="315" fill="#f6c453" font-weight="700">1  1   1</text>
   </g>
 
-  <text x="40" y="410" font-family="Arial, sans-serif" font-size="20" fill="#6d7594">Output is 1 only when both inputs are 1</text>
 </svg>
